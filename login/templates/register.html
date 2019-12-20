@@ -1,0 +1,26 @@
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+    <meta charset="UTF-8">  
+    <title>Signup</title>  
+    {% load static %}
+    {% load crispy_forms_tags %}
+    <link href="{% static '/css/login_style.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>  
+<body>  
+    <div class="login-form">
+        <form method="POST" class="post-form"> 
+            {% csrf_token %}
+            <h2 class="text-center">Sign up</h2>
+            <div class="form-group">  
+                {{ form | crispy }}
+            </div>  
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary btn-block">Sign up</button>
+            </div> 
+        </form>
+        <p class="text-center"><a href="{% url 'login' %}">Back to Login</a></p>
+    </div>
+</body>  
+</html> 
